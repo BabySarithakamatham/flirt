@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Romantic Web Page</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow: hidden;
+      position: relative;
+      background-color: #fff0f5;
+    }
+    .heart {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      overflow: hidden;
+    }
+    .heart span {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: pink;
+      transform: rotate(45deg);
+      animation: float 8s linear infinite;
+      opacity: 0.7;
+    }
+    .heart span::before,
+    .heart span::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: pink;
+      border-radius: 50%;
+    }
+    .heart span::before {
+      top: -10px;
+      left: 0;
+    }
+    .heart span::after {
+      top: 0;
+      left: -10px;
+    }
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) rotate(45deg);
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) rotate(45deg);
+        opacity: 0;
+      }
+    }
+    .page {
+      display: none;
+      height: 100vh;
+      width: 100vw;
+      position: absolute;
+      top: 0;
+      left: 0;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      color: #d6336c;
+      font-size: 1.3rem;
+      font-weight: bold;
+    }
+    .active {
+      display: flex;
+    }
+    button {
+      margin: 20px;
+      padding: 12px 20px;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .primary-btn {
+      background-color: #ff69b4;
+      color: white;
+      box-shadow: 0 4px 10px rgba(255, 105, 180, 0.6);
+    }
+    .next-btn, .back-btn {
+      position: absolute;
+    }
+    .back-btn {
+      bottom: 20px;
+      left: 20px;
+    }
+    .next-btn {
+      bottom: 20px;
+      right: 20px;
+    }
+    .center-btn {
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .emoji {
+      font-size: 2rem;
+    }
+    .stars span {
+      font-size: 2rem;
+      cursor: pointer;
+      color: gray;
+    }
+    .stars span:hover,
+    .stars span.selected {
+      color: gold;
+    }
+    textarea {
+      margin-top: 20px;
+      width: 80%;
+      height: 120px;
+      font-size: 1rem;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="heart">
+    <!-- Generate multiple hearts -->
+    <script>
+      for (let i = 0; i < 50; i++) {
+        const heart = document.createElement('span');
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.animationDelay = Math.random() * 8 + 's';
+        document.querySelector('.heart').appendChild(heart);
+      }
+    </script>
+  </div>
+
+  <div id="page1" class="page active">
+    <script>alert("If you want to know something just click ok button");</script>
+    <button class="primary-btn" style="background-color: #e75480;" onclick="showPage(2)">Want to know something</button>
+  </div>
+
+  <div id="page2" class="page">
+    <p>Let's start something sweet and exciting 💖</p>
+    <button class="primary-btn center-btn" onclick="showPage(3)">➡️</button>
+    <button class="back-btn primary-btn" onclick="showPage(1)">⬅ Back</button>
+  </div>
+
+  <div id="page3" class="page">
+    <p style="font-weight: bold; font-size: 1.5rem">Keep smile and be patient Mr. Handsome😍</p>
+    <p style="margin-top:100px; font-weight: bold; font-size: 1.3rem">Click the below button with love ❤️</p>
+    <button class="primary-btn" style="background-color: #ff1493; font-weight: bold;" onclick="showPage(4)">Click me! 😊</button>
+    <button class="back-btn primary-btn" onclick="showPage(2)">⬅ Back</button>
+  </div>
+
+  <div id="page4" class="page">
+    <p style="font-size: 1.4rem; font-weight: bold">Here's a message just for you 💌</p>
+    <p style="font-size: 1.1rem; font-weight: 500; line-height: 1.8; text-align: center; max-width: 90%; margin: 0 auto; max-height: 70vh; overflow-y: auto;"> Dear <br> Harshuluuuu! I don't know why I like you this much! I never flirted with a boy or talked like the way I flirt with you. 😉
+     
+But meru eppudu na msg ki nenu expect chesina reply ivvaru...😐 Asalu meru naa msg chusi navtharo, kopam avtharo ledha em reaction vundadho nakem ardham kadhu... Mee reply ki naku meku nachindha, ledha nachaledha em ardham kadhu... Kani pulihora ani anukokapothe, meru navvithe naku chala istam entha bavuntarooo..🙈💋
+         Nenu mimmalni meru chudataniki bavuntaru kabatti like chesthunna ani matram anukokandi.. chudataniki kuda bavuntaru lendi..😜🫣
+            And ah roju jarigindhi ayithe nenu chala manchi memory anukuntunna. Nijam cheppali ante chala emotional ga anipinchindhi naku... Kani senior nenu emotional ayithe meru feel avtharu ani chala control lo vunna... Naku thelisi iddarilo okariki matrame ok ayyi inkokariki ok avvakapothe regret feel avvali.. kani mana vishyam lo naku ala anipinchaledhu.. 
+            Mee valla naa time eppudu waste avvadhu meru asalu alantivi think cheyyodhu... Nijam cheppali ante roju institute ki mee vallane velthunna antha mrng... Malli meru adiginappudu vellaledhu ante em ayina antaru Emo ani... So mee valla nenu manchiga chadukuntunna..🤭
+        And naku kuda thelusu meru naku boyfriend avvaru and life partner kuda avvaru ani... Kani manam frnds aithe kadhu seniorrrrrrrrr... Meku ento naku Thelidhu kani naku ayithe meru frnd kadhu...meru naku seniorrrrrrrrr... 
+            Nijam ga cheppali ante naku chala bayam vesindhi senior nenu ala meetho vundatam meru ela theeskunnara ani.. kani mee msg lo naku wrong ga theeskoledhu ani ardham ayindhi appudu konchem free ayyanu... Normal ga vere abbayi ayithe wrong theeskunne vallu emo... 
+         Ah roju nenu start ayye mundhu kanisam eeroju ayina open ga matladithe bavundu ani expect chesi matrame start ayya.. meetho ah time and meru lifetime memory naku.. 
+        Chinna request enti ante mee phone elago meru use cheyyaru naku pampincheyyandi dhanni.. Nene use cheskunta.. okkasari champeyyali antha kopam vasthundhi naku mee paina... Malli mee msg chudagane pothundhi lendi... 
+           Mee answers yes ah ledha no ah em ardham kadhu, ah roju kuda nenu Yes chesa akkadiki ravataniki... Endhuku abba antha mohamatam vere valla deggara ayina parledhu natho comfort ga matladochu ani mere antaru malli mere half half answers istharu... Dhanni nenu mee place lo vundi alochinchi oho ila theeskunnada ani ardham cheskovali... Dhayachesi Neku em anipinchina adhi naku cheppey nenu edhi wrong ga theeskonu adhi meku ardham ayye vuntundhi naku thelisi... Direct ga cheppey Please abba... 
+          Mimmalni baga ekkuva gaarabam chesthunna nenu Andhuke intha over action chesthunnaru... Inkosari ivanni repeat chesaru anukondi nijamgane champestha chuskondi...😘
+        SENIORRRRRRRRRRRRRRRRR! Navvochu kadhaaa... please....</p>
+    <button class="primary-btn" onclick="showPage(5)">Next ➡</button>
+    <button class="back-btn primary-btn" onclick="showPage(3)">⬅ Back</button>
+  </div>
+
+  <div id="page5" class="page">
+    <p>Please, give me review 💌</p>
+    <button class="primary-btn" onclick="showPage(6)">I like it</button>
+    <button class="primary-btn" onclick="showPage(6)">I don't like it</button>
+    <button class="primary-btn" onclick="showPage(6)">I loved it</button>
+    <button class="back-btn primary-btn" onclick="showPage(4)">⬅ Back</button>
+    <button class="next-btn primary-btn" onclick="showPage(6)">Next ➡</button>
+  </div>
+
+  <div id="page6" class="page">
+    <p>Rate me on flirting 😉</p>
+    <div class="stars" id="stars">
+      <span onclick="rateStar(1)">★</span>
+      <span onclick="rateStar(2)">★</span>
+      <span onclick="rateStar(3)">★</span>
+      <span onclick="rateStar(4)">★</span>
+      <span onclick="rateStar(5)">★</span>
+    </div>
+    <textarea id="reviewText" placeholder="Type your review here..."></textarea>
+    <button class="primary-btn" onclick="sendReview()">Submit</button>
+    <button class="back-btn primary-btn" onclick="showPage(5)">⬅ Back</button>
+  </div>
+
+  <script>
+    let currentRating = 0;
+
+    function showPage(num) {
+      document.querySelectorAll(".page").forEach(page => page.classList.remove("active"));
+      document.getElementById(`page${num}`).classList.add("active");
+    }
+
+    function rateStar(star) {
+      currentRating = star;
+      const stars = document.querySelectorAll("#stars span");
+      stars.forEach((s, i) => {
+        s.classList.toggle("selected", i < star);
+      });
+    }
+
+    function sendReview() {
+      const review = document.getElementById("reviewText").value;
+      const subject = encodeURIComponent("Flirting Review");
+      const body = encodeURIComponent(`Rating: ${currentRating}\nReview: ${review}`);
+      window.location.href = `mailto:babysarithakamatham@gmail.com?subject=${subject}&body=${body}`;
+    }
+  </script>
+</body>
+</html>
